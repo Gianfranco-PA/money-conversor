@@ -1,7 +1,6 @@
 package org.gianfranco.model.repository.exchange.rate;
 
 import org.gianfranco.model.config.Config;
-import org.gianfranco.model.entity.ConversionRate;
 import org.gianfranco.model.entity.Currency;
 
 import java.util.ArrayList;

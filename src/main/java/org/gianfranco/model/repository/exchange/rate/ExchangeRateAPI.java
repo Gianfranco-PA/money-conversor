@@ -2,7 +2,7 @@ package org.gianfranco.model.repository.exchange.rate;
 
 import com.google.gson.Gson;
 import org.gianfranco.model.config.Config;
-import org.gianfranco.model.entity.ConversionRate;
+import org.gianfranco.model.entity.Conversion;
 import org.gianfranco.model.entity.Currency;
 import org.gianfranco.model.repository.CurrencyConverterRepository;
 
@@ -40,7 +40,7 @@ public class ExchangeRateAPI implements CurrencyConverterRepository {
     }
 
     @Override
-    public ConversionRate getExchangeRate(Currency base, Currency target) {
+    public Conversion getExchangeRate(Currency base, Currency target) {
         final String API_KEY = Config.get("exchange.rate.api.key");
         final String API_URL = BASE_URL.replace("{APIKEY}", API_KEY) + "/pair/" + base.getCode() + "/" + target.getCode();
 
@@ -59,6 +59,6 @@ public class ExchangeRateAPI implements CurrencyConverterRepository {
             }
         }
 
-        return new ConversionRate(base,target, dto.conversion_rate());
+        return new Conversion(base,target, dto.conversion_rate());
     }
 }
