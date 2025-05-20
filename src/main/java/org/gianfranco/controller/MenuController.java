@@ -29,7 +29,6 @@ public class MenuController implements Controller {
         menu = new Menu();
         repository.getCurrencyCodes().forEach(Shortcut::checkActive);
         activeShortcuts = Shortcut.getActiveShortcuts();
-        System.out.println(activeShortcuts.size());
         menu.show(activeShortcuts);
         option = Request.intResponse(
                 "Indicar la opción escogida:",
