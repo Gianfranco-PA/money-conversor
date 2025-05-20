@@ -52,3 +52,16 @@ Sigue las instrucciones en pantalla para:
 1. Seleccionar un acceso directo o escoger manualmente la divisa origen y destino.
 2. Introducir el monto a convertir.
 3. Ver el resultado y presionar Enter para continuar.
+
+## Images
+**Interfaz de menu:**
+
+![Menu](/docs/menu.png)
+
+**Interfaz de resultados:**
+
+![Result](/docs/result.png)
+
+**Interfaz de elección de divisas:**
+
+![Menu](/docs/choice.png)
