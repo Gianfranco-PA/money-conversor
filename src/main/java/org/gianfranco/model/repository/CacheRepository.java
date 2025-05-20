@@ -29,6 +29,9 @@ public class CacheRepository implements CurrencyConverterRepository{
     public Conversion getExchangeRate(Currency base, Currency target) {
         if(conversions == null) {
             conversions = new HashMap<>();
+        }
+        Map<Currency, Conversion> map = conversions.get(base);
+        if(map == null) {
             conversions.computeIfAbsent(base, _ -> new HashMap<>())
                     .put(target, repository.getExchangeRate(base, target));
         }

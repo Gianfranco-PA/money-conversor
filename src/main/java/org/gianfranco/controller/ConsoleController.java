@@ -17,6 +17,7 @@ public class ConsoleController implements Controller {
 
     private MenuController menuController;
     private ConversionResultController conversionResultController;
+    private CurrencyChoiceController currencyChoiceController;
     private CurrencyConverterRepository repository;
 
     private ConsoleController() {
@@ -41,7 +42,17 @@ public class ConsoleController implements Controller {
                 conversionResultController.setConversion(conversion);
                 conversionResultController.run();
             }else{
+                currencyChoiceController = CurrencyChoiceController.getInstance();
+                currencyChoiceController.setRepository(repository);
+                currencyChoiceController.run();
+                Conversion conversion = currencyChoiceController.getConversion();
 
+                if(conversion != null){
+                    Conversion rate = repository.getExchangeRate(conversion.getBase(), conversion.getTarget());
+                    conversionResultController = ConversionResultController.getInstance();
+                    conversionResultController.setConversion(rate);
+                    conversionResultController.run();
+                }
             }
         }
 

@@ -8,6 +8,9 @@ public class Conversion {
     private double amount = 0.;
     private double result = 0.;
 
+    public Conversion() {
+    }
+
     public Conversion(Currency base, Currency target, double rate) {
         this.base = base;
         this.target = target;
